@@ -8,6 +8,6 @@ class MainViewModel : ViewModel() {   //predefine class is inherited
         count++
     }
     fun reset(){
-        count*=0
+        count=0
     }
 }
