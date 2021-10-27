@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setTextReset(){
-        increment.text = mainViewModel.resetCounter.toString()
+        increment.text = mainViewModel.count.toString()
     }
 
     fun clicked(view: android.view.View) {
