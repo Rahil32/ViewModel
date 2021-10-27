@@ -25,4 +25,13 @@
         android:onClick="clicked"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        android:textStyle="bold"
+        android:onClick="Reset"
+        />
+
+
 </LinearLayout>

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.viewmodel.model.MainViewModel
 
 class MainActivity : AppCompatActivity() {
-
+        //MVM - Model ViewModel (General Architecture)
     lateinit var increment: TextView   //instance
     lateinit var mainViewModel: MainViewModel
 
@@ -17,9 +17,10 @@ class MainActivity : AppCompatActivity() {
 
         increment = findViewById(R.id.txt_increment)    //shows data
         mainViewModel =     //Object of MainViewModel
-            ViewModelProvider(this).get(MainViewModel::class.java)  //proper MainViewModel Location
+        ViewModelProvider(this).get(MainViewModel::class.java)  //proper MainViewModel Location
                     //ViewModelProvider creates object for you
         setText()
+        setTextReset()
 
     }
 
@@ -27,9 +28,18 @@ class MainActivity : AppCompatActivity() {
         increment.text = mainViewModel.count.toString()  //data is set & is pointed to txt_increment UI
     }
 
+    fun setTextReset(){
+        increment.text = mainViewModel.resetCounter.toString()
+    }
+
     fun clicked(view: android.view.View) {
         mainViewModel.countIncrement()
         setText()
+    }
+
+    fun Reset(view: android.view.View) {
+        mainViewModel.reset()
+        setTextReset()
     }
 
 }
