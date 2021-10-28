@@ -1,14 +1,27 @@
 package com.example.viewmodel.model
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData      //MainActivity -> LiveData <- MutableLiveData
+import androidx.lifecycle.ViewModel      //MainActivity -> MainViewModelFactory <- MainViewModel
 
-class MainViewModel : ViewModel() {   //predefine class is inherited
-    var count: Int = 0   //universal/global variable
-    fun countIncrement() {
-        count++
+class MainViewModel(val start:Int) : ViewModel() {   //predefine class is inherited
+    var count: Int = start   //universal/global variable
+
+    private var liveDataFactObj = MutableLiveData<String>("Sumanta")
+
+    val liveDataFact: LiveData<String>      //MutableLiveData -> read and write
+    get() = liveDataFactObj                 //LiveData -> read
+
+    fun countIncrement() {                  // = is assign, : is point in var/val
+        count++                             // in fun. : is return
     }
 
     fun reset() {
         count = 0
     }
+
+    fun liveDataUpdate(){
+        liveDataFactObj.value = "MM MM"
+    }
+
 }
