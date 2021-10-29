@@ -45,8 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setText() {
-        increment.text =
-            mainViewModel.count.toString()  //data is set & is pointed to txt_increment UI
+        increment.text = mainViewModel.count.toString()  //data is set & is pointed to txt_increment UI
     }
 
     private fun setTextReset() {
