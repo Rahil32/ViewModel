@@ -10,7 +10,7 @@ class MainViewModel(val start:Int) : ViewModel() {   //predefine class is inheri
     private var liveDataFactObj = MutableLiveData<String>("Sumanta")
 
     val liveDataFact: LiveData<String>      //MutableLiveData -> read and write
-    get() = liveDataFactObj                 //LiveData -> read
+        get() = liveDataFactObj                 //LiveData -> read
 
     fun countIncrement() {                  // = is assign, : is point in var/val
         count++                             // in fun. : is return

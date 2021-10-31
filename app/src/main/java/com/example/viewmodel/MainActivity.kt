@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.viewmodel.databinding.ActivityMainBinding
 import com.example.viewmodel.model.MainViewModel
 import com.example.viewmodel.model.MainViewModelFactory
 
@@ -15,25 +17,22 @@ class MainActivity : AppCompatActivity() {
     //MVM - Model ViewModel (General Architecture)
     lateinit var increment: TextView   //instance
     private lateinit var mainViewModel: MainViewModel
-
-    val liveData: TextView
-    get() = findViewById(R.id.txt_LiveData)
+    lateinit var dataBinding: ActivityMainBinding
 
     val btnUpdate: Button
     get() = findViewById(R.id.updateLiveData)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        dataBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         increment = findViewById(R.id.txt_increment)    //shows data
         mainViewModel =     //Object of MainViewModel
-            ViewModelProvider(this,MainViewModelFactory(12)).get(MainViewModel::class.java)  //proper MainViewModel Location
+            ViewModelProvider(this,MainViewModelFactory(0)).get(MainViewModel::class.java)  //proper MainViewModel Location
         //ViewModelProvider creates object for you
 
-        mainViewModel.liveDataFact.observe(this, Observer {
-            liveData.text = it
-        })
+        dataBinding.mainViewModel = mainViewModel   //main xml var is connected with mainViewModel
+        dataBinding.lifecycleOwner = this    //owner is passed i.e. as long as activity runs this will work
 
         setText()
         setTextReset()
