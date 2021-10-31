@@ -20,12 +20,12 @@
         android:layout_marginTop="250dp">
 
         <TextView
-            android:id="@+id/txt_increment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+        android:id="@+id/txt_increment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
         <Button
             android:layout_width="wrap_content"
@@ -50,10 +50,10 @@
             android:layout_marginTop="200dp" />
 
         <Button
-            android:id="@+id/updateLiveData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/update"
+            android:onClick="@{() -> mainViewModel.liveDataUpdate()}"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -19,9 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
     lateinit var dataBinding: ActivityMainBinding
 
-    val btnUpdate: Button
-    get() = findViewById(R.id.updateLiveData)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
@@ -37,9 +34,7 @@ class MainActivity : AppCompatActivity() {
         setText()
         setTextReset()
 
-        btnUpdate.setOnClickListener {
-            mainViewModel.liveDataUpdate()
-        }
+
 
     }
 
